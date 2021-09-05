@@ -2,10 +2,6 @@ var stage1State = {
 	
     create: function(){
 		//muisic e sons
-		this.music = game.add.audio('music');
-		this.music.loop = true;
-		this.music.volume = 50;
-		this.music.play();
 
 		this.sndCoin = game.add.audio('wam pizza');
 		this.sndCoin.volume = .5;
@@ -63,7 +59,8 @@ var stage1State = {
 				    this.player.animations.add('goDown',[15,56,56,57,58,59,60,61,62,63],22,true)
 					this.player.animations.add('goUp',[14,42,43,44,45,46,47,48,49],22,true);
 					this.player.animations.add('goLeft',[0,28,29,30,31,32,33,34,35,36,37],22,true);
-					this.player.animations.add('goRight',[264,286,287,288,289,290,291,292,293,290],22,true);					
+					this.player.animations.add('goRight',[264,286,287,288,289,290,291,292,293,290],22,true);
+										
 				 } else
 				if(tile === 3){
 					var position = {
@@ -109,13 +106,21 @@ var stage1State = {
          //criar coração
 		
 		 
-
-
+//particulas
+this.emitter = game.add.emitter(0,0,30);
+this.emitter.makeParticles('part');
+this.emitter.setXSpeed(-50,50);
+this.emitter.setYSpeed(-50,50);
+this.emitter.gravity.y = 10;
 
 		//controles
 		this.controls = game.input.keyboard.createCursorKeys();
 	},
 	
+
+
+    
+
 
 	update: function(){
 
@@ -136,6 +141,10 @@ var stage1State = {
 		this.sndLoseCoin.play();
 		
 		if(this.coins > 0){
+			this.emitter.x = this.player.position.x;
+			this.emitter.y = this.player.position.y;
+			this.emitter.start(true,500,null,15);
+
 			this.coins -= 15;  
 			this.txtCoins.text = 'pizza 900/' + this.getText(this.coins);
 
@@ -191,6 +200,10 @@ moveEnemy: function(){
 
 //Função para add pontos
 	getCoin: function(){
+		this.emitter.x = this.coin.position.x;
+		this.emitter.y = this.coin.position.y;
+		this.emitter.start(true,500,null,30);
+		
 		this.coins+=50;
 		this.txtCoins.text = 'pizza 900/' + this.getText(this.coins);
 		

@@ -1,5 +1,10 @@
 var game = new Phaser.Game(1000,650,Phaser.CANVAS);
 
+game.global = {
+    score:  0,
+    highScore: 0
+};
+
  game.state.add('boot',bootState);
  game.state.add('load',loadState);
  game.state.add('menu',menuState);
