@@ -26,7 +26,7 @@ var loadState = {
 
 		game.load.audio('getitem','sfx/getitem.ogg');
 		game.load.audio('loseitem','sfx/loseitem.ogg');
-		game.load.audio('sound 7','sound/sound 7.ogg')
+		game.load.audio('sound 7','sound/sound 7.ogg');
 		game.load.audio('wam pizza','sounds/sfx/wam pizza.ogg');
 
        game.physics.startSystem(Phaser.Physics.ARCADE);
