@@ -1,2 +1,0 @@
-# Jogo
-Jogo Simples
