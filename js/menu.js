@@ -5,7 +5,7 @@ var menuState = {
 	
 		this.music = game.add.audio('sound 7');
 		this.music.loop = true;
-		this.music.volume = 50;
+		this.music.volume = .5;
 		this.music.play();
         
 		

@@ -103,7 +103,7 @@ var stage1State = {
 		  this.coin.animations.add('spin',[0,1,2,3,4,5,6,7,8,9],10,true).play();
 		  game.physics.arcade.enable(this.coin);
 		  //coletar pizza
-		  this.coins = 0;
+		  this.coins = 900;
 		  this.txtCoins = game.add.text(15,15,'pizza 900/' + this.getText(this.coins),{font: '25px BADABB',fill: '#167'});
 
          //criar coração
@@ -136,10 +136,10 @@ var stage1State = {
 		this.sndLoseCoin.play();
 		
 		if(this.coins > 0){
-			this.coins --;
+			this.coins -= 15;  
 			this.txtCoins.text = 'pizza 900/' + this.getText(this.coins);
 
-			this.coin.position = this.newPosition();
+			
 		}
 	
 },
@@ -191,7 +191,7 @@ moveEnemy: function(){
 
 //Função para add pontos
 	getCoin: function(){
-		this.coins++;
+		this.coins+=50;
 		this.txtCoins.text = 'pizza 900/' + this.getText(this.coins);
 		
 		this.coin.position = this.newPosition();
